@@ -682,9 +682,9 @@ class Rheostat extends React.Component {
               className="rheostat-handle"
               key={`handle-${idx}`}
               onClick={this.killEvent}
-              onKeyDown={!disabled && this.handleKeydown}
-              onMouseDown={!disabled && this.startMouseSlide}
-              onTouchStart={!disabled && this.startTouchSlide}
+              onKeyDown={disabled ? () => {} : this.handleKeydown}
+              onMouseDown={disabled ? () => {} : this.startMouseSlide}
+              onTouchStart={disabled ? () => {} : this.startTouchSlide}
               role="slider"
               style={handleStyle}
               tabIndex={0}
